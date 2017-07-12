@@ -1,0 +1,27 @@
+apply plugin: 'java'
+apply plugin: 'war'
+
+repositories {
+    mavenCentral()
+	
+	maven {
+        url "http://repo.spring.io/list/plugins-release/"
+    }
+
+}
+
+war {
+    archiveName 'test.war'
+    webXml = file('src/web.xml')
+}
+
+dependencies {
+    compile 'com.ibm.watson.developer_cloud:java-wrapper:1.1.0'
+	compile 'org.glassfish.main.core:glassfish:4.1.1'
+	compile 'javax.servlet:javax.servlet-api:4.0.0-b01'
+	compile 'org.apache.clerezza.ext:org.json.simple:0.4'
+	compile 'org.json:json:20160212'
+	compile 'com.googlecode.json-simple:json-simple:1.1','javax.servlet:servlet-api:3.0-alpha-1','cn.guoyukun.jdbc:db2jcc:1.4.2','org.eclipse.jetty.orbit:javax.servlet:3.0.0.v201112011016'
+	testCompile 'junit:junit:4.12'
+	
+}
